@@ -6,6 +6,7 @@ from pathlib import Path
 from dotenv import find_dotenv, load_dotenv
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
+import joblib
 
 class DataImporter:
     def __init__(self, filepath='data/raw'):
@@ -41,6 +42,7 @@ class DataImporter:
         scaler = StandardScaler()
         X_train_scaled = scaler.fit_transform(X_train)
         X_test_scaled = scaler.transform(X_test)
+        joblib.dump(scaler, "models/scaler.pkl")
 
         return X_train_scaled, X_test_scaled
 

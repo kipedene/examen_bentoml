@@ -1,28 +1,47 @@
-# Examen BentoML
+# University admission prediction
 
-Ce repertoire contient l'architecture basique afin de rendre l'évaluation pour l'examen BentoML.
+This repository contains a basic implementation of a secure API for predicting a student's chance of admission to a university
 
-Vous êtes libres d'ajouter d'autres dossiers ou fichiers si vous jugez utile de le faire.
-
-Voici comment est construit le dossier de rendu de l'examen:
+This is how the project is built:
 
 ```bash       
-├── examen_bentoml          
-│   ├── data       
-│   │   ├── processed      
-│   │   └── raw           
-│   ├── models      
-│   ├── src       
-│   └── README.md
+├── examen_bentoml             
+│   ├── data                <- data used for the project
+│   │   ├── processed       <- model-ready data
+│   │   └── raw             <- raw data
+│   ├── models              <- models or artifacts used in the model
+│   ├── notebooks           <- exploratory data analysis files
+│   ├── src                 <- directory containing all scripts needed to build the model and API
+│   │   ├── data            <- downloading and cleaning data 
+│   │   ├── models          <- model training
+│   │   ├── predit          <- model inference
+│   │   └── test            <- testing model inference
+│   ├── bentofile.yaml      <- bentoML configuration file
+│   ├── requirements.txt    <- dependencies required for the project
+│   ├── setup.sh            <- automatic project start-up
+│   └── README.md           
 ```
 
-Afin de pouvoir commencer le projet vous devez suivre les étapes suivantes:
+## How to Run the Project
 
-- Forker le projet sur votre compte github
+1. Install the required dependencies:
+```bash
+pip install -r requirements.txt
 
-- Cloner le projet sur votre machine
+```
 
-- Récuperer le jeu de données à partir du lien suivant: [Lien de téléchargement]( https://datascientest.s3-eu-west-1.amazonaws.com/examen_bentoml/admissions.csv)
+2. Run the setup script:
+```bash
+./setup.sh
 
+```
 
-Bon travail!
+If you encounter permission issues, make the script executable first:
+```bash
+chmod 700 setup.sh
+
+```
+
+3. Follow the prompts to select your preferred server option:
+- Enter 1 to use the BentoML development server.
+- Enter 2 to use the Docker container (ensure Docker is installed on your machine).
